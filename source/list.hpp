@@ -251,14 +251,14 @@ class List {
     bool empty() const {
 
       // TODO: empty-method (Aufgabe 3.2)
-      return false;
+      return size_ == 0;
     };
 
 
     /* ... */
     std::size_t size() const{
       // TODO: size-method (Aufgabe 3.2)      
-      return 27;
+      return size_;
   };
 
 
