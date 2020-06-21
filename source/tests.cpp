@@ -43,6 +43,17 @@ ListNode<T>* get_last_pointer(List<T> const& list_to_test) {return list_to_test.
 #include "sub_tests/iterators/operator_does_not_equal.test"
 #include "sub_tests/iterators/operator_iterate_forward.test"
 
+// selbst definierten Testen
+TEST_CASE("test_clear", "[test_clear]") 
+{
+    List<int> list1;
+    list1.push_front(1);
+    list1.push_front(2);
+    list1.push_front(3);
+    list1.clear();
+    REQUIRE(list1.empty()==true);
+}
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);

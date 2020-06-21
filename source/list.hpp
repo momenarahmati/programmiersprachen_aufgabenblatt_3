@@ -4,7 +4,7 @@
 #include <cstddef>  //ptrdiff_t
 #include <iterator> //std::bidirectional_iterator_tag
 #include <iostream>
-// hello TEST
+
 #include <initializer_list>
 
 template <typename T>
@@ -166,10 +166,6 @@ class List {
       // make use of operator==
     }
 
-    /* ... */
-    ~List() {
-      //TODO: Implement via clear-Method (Aufgabe 3.4)
-    } //can not really be tested
 
     /* ... */
     ListIterator<T> begin() {
@@ -187,7 +183,23 @@ class List {
 
     /* ... */ 
     // test and implement:
-    //TODO: clear()-Method (Aufgabe 3.4)
+    //(Aufgabe 3.4)
+    void clear() 
+    {
+        if (empty() == true) {
+            std::cout<< "List is empty :) \n";
+        }
+        else {
+            while (first_ != nullptr && last_ != nullptr) {
+                pop_front();
+            }
+        }
+    }
+
+    /* (Aufgabe 3.4)... */
+    ~List() {
+        clear();
+    }
 
 
     /* ... */
@@ -233,10 +245,10 @@ class List {
 
     /* (Aufgabe 3.3)... */
     void pop_front() {
-        
       if(empty()) {
         throw "List is empty";
       }
+      
       assert(!empty());
       if(size()==1)
       {
@@ -256,6 +268,7 @@ class List {
 
     /* (Aufgabe 3.3)... */
     void pop_back() {
+       
       if(empty()) {
         throw "List is empty";
       }
@@ -290,6 +303,7 @@ class List {
       if(empty()) {
         throw "List is empty";
       }
+      
       assert(!empty());
       return last_->value;
     }
