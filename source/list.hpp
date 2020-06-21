@@ -137,18 +137,19 @@ class List {
 
     // test and implement:
     //TODO: Copy-Konstruktor using Deep-Copy semantics (Aufgabe 3.5)
-    List(List<T> const& list) :
+    /*
+    List(List<T> const& list):
         size_{0},
         first_{nullptr},
-        last_{nullptr}
-    {
+        last_{nullptr}  {
         auto i = list.begin();
-        while (i != end()) 
+        while (i != list.end()) 
         {
             push_back(*i);
-            ++i
+            ++i;
         }
     }
+    */
     // test and implement:
     // TODO: Move-Konstruktor (Aufgabe 3.9)
 
@@ -162,10 +163,19 @@ class List {
     /* ... */
     // test and implement:
     //TODO: (unifying) Assignment operator (Aufgabe 3.6)
+    List<T>& operator=(List<T>& list1)
+    {
+        clear();
+        for (auto i = list1.begin(); i != list1.end(); ++i)
+        {
+            push_back(*i);
+        }
+        return *this;
+    }
+
 
     /* ... */
     // test and implement:
-
     bool operator==(List const& rhs) const
     {
       //TODO: operator== (Aufgabe 3.8)

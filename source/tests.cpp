@@ -53,14 +53,27 @@ TEST_CASE("test_clear", "[test_clear]")
     list1.clear();
     REQUIRE(list1.empty()==true);
 }
-
+/*
 TEST_CASE("test_copy_cons", "[copy_cons]")
 {
-    List<int> list1{ 1,2,3,4 };
-    List<int> list2{ 5,6,7,8 };
-    list1 = list2;
-    REQUIRE(list1.front()==5);
-    REQUIRE(list1.back()==8);
+    List<int> list1;
+    list1.push_front(1);
+    list1.push_front(2);
+    list1.push_front(3);
+    List<int> list2{list1};
+    REQUIRE(list1==list2);
+} */
+
+TEST_CASE("test_ZuweisungOP", "[ZuweisungOp]")
+{
+    List<int> list1;
+    list1.push_back(1);
+    list1.push_back(2);
+    list1.push_back(3);
+    List<int> list2;
+    list2 = list1;
+    REQUIRE(list2.front()==1);
+    REQUIRE(list2.back()==3);
 }
 
 int main(int argc, char *argv[])
