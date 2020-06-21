@@ -176,15 +176,43 @@ class List {
 
     /* ... */
     // test and implement:
+    //operator== (Aufgabe 3.8)
     bool operator==(List const& rhs) const
     {
-      //TODO: operator== (Aufgabe 3.8)
+        ListNode<T>* current = first_;
+        ListNode<T>* current_rhs = rhs.first_;
+        if (size() != rhs.size())
+        {
+            return false;
+        }
+        while (current != nullptr)
+        {
+            if (current->value != current_rhs->value)
+            {
+                return false;
+            }
+            current = current->next;
+            current_rhs = current_rhs->next;
+        }
+        return true;
     }
-
+    //operator!= (Aufgabe 3.8)
     bool operator!=(List const& rhs) const
     {
-      //TODO: operator!= (Aufgabe 3.8)
-      // make use of operator==
+        ListNode<T>* current = first_;
+        ListNode<T>* current_rhs = rhs.first_;
+        if (size() != rhs.size()) {
+            return true;
+        }
+
+        while (current != nullptr) {
+            if (current->value != current_rhs->value) {
+                return true;
+            }
+            current = current->next;
+            current_rhs = current_rhs->next;
+        }
+        return false;
     }
 
 

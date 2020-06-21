@@ -89,6 +89,22 @@ TEST_CASE("test_reverse", "[reverse]")
     REQUIRE(list2.back()==3);
     REQUIRE(list2.front()==1);
 }
+TEST_CASE("vergleich zwei list", "[List_Vergleich]")
+{
+    List<int> list1;
+    List<int> list2;
+    REQUIRE(list1==list2);
+
+    list1.push_back(1);
+    list2.push_back(1);
+    REQUIRE(list1 == list2);
+
+    list1.push_back(4);
+    list2.push_back(1);
+    REQUIRE(list1 != list2);
+
+
+}
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
