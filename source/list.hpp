@@ -201,14 +201,34 @@ class List {
     //TODO: member function reverse (Aufgabe 3.7 - Teil 1)
 
 
-    /* ... */
+    /* (Aufgabe 3.3)... */
     void push_front(T const& element) {
-      // TODO: push_front-method (Aufgabe 3.3)
+        ListNode<T>* node = new ListNode<T>{element,nullptr,nullptr};
+        if (empty() == true) {
+            first_ = node;
+            last_ = node;
+        }
+        else {
+            node->next = first_;
+            first_->prev = node;
+            first_ = node;
+        }
+        ++size_;
     }
 
-    /* ... */
+    /* (Aufgabe 3.3)... */
     void push_back(T const& element) {
-      // TODO: push_back-method (Aufgabe 3.3)
+        ListNode<T>* node = new ListNode<T>{element,nullptr,nullptr};
+        if (empty() == true) {
+            first_ = node;
+            last_ = node;
+        }
+        else {
+            last_->next = node;
+            node->prev = last_;
+            last_ = node;
+        }
+        ++size_;
     }
 
     /* ... */
@@ -247,17 +267,14 @@ class List {
       // TODO: remainder of back-method (Aufgabe 3.3)
     }
 
-    /* ... */
+    /* (Aufgabe 3.2)... */
     bool empty() const {
-
-      // TODO: empty-method (Aufgabe 3.2)
       return size_ == 0;
     };
 
 
-    /* ... */
-    std::size_t size() const{
-      // TODO: size-method (Aufgabe 3.2)      
+    /* (Aufgabe 3.2) ... */
+    std::size_t size() const{      
       return size_;
   };
 
