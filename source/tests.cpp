@@ -54,6 +54,15 @@ TEST_CASE("test_clear", "[test_clear]")
     REQUIRE(list1.empty()==true);
 }
 
+TEST_CASE("test_copy_cons", "[copy_cons]")
+{
+    List<int> list1{ 1,2,3,4 };
+    List<int> list2{ 5,6,7,8 };
+    list1 = list2;
+    REQUIRE(list1.front()==5);
+    REQUIRE(list1.back()==8);
+}
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
