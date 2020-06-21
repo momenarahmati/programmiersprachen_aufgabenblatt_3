@@ -232,7 +232,23 @@ class List {
     /* ... */
 
     //TODO: member function reverse (Aufgabe 3.7 - Teil 1)
-
+    void reverse()
+    {
+        ListNode<T>* node = first_;
+        ListNode<T>* temp = nullptr;
+        while (node != nullptr)
+        {
+            temp = (*node).next;
+            (*node).next = (*node).prev;
+            (*node).prev = temp;
+            if (temp == nullptr) 
+            {
+                last_ = first_;
+                first_ = node;
+            }
+            node = temp;
+        }
+    }
 
     /* (Aufgabe 3.3)... */
     void push_front(T const& element) {
@@ -351,6 +367,13 @@ class List {
 /* ... */
 //TODO: Freie Funktion reverse 
 //(Aufgabe 3.7 - Teil 2, benutzt Member-Funktion reverse)
+template<typename T>
+List<T> reverse(List<T> const& list)
+{
+    List<T> list1(list);
+    list1.reverse();
+    return list1;
+}
 
 /* ... */
 //TODO: Freie Funktion operator+ (3.10 - Teil 2)

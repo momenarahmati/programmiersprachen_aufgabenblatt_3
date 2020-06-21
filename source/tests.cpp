@@ -75,7 +75,20 @@ TEST_CASE("test_ZuweisungOP", "[ZuweisungOp]")
     REQUIRE(list2.front()==1);
     REQUIRE(list2.back()==3);
 }
+TEST_CASE("test_reverse", "[reverse]")
+{
+    List<int> list1;
+    list1.push_back(1);
+    list1.push_back(2);
+    list1.push_back(3);
+    list1.reverse();
+    REQUIRE(list1.front()==3);
+    REQUIRE(list1.back()==1);
 
+    List<int> list2 = reverse(list1);
+    REQUIRE(list2.back()==3);
+    REQUIRE(list2.front()==1);
+}
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
