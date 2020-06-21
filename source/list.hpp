@@ -217,17 +217,20 @@ class List {
 
 
     /* ... */
-    ListIterator<T> begin() {
       //TODO: begin-Method returning an Iterator to the 
-      //      first element in the List (Aufgabe 3.11)
-      return {};
+      //first element in the List (Aufgabe 3.9)
+    ListIterator<T> begin() {
+        if (empty()) {
+            return ListIterator<T>{nullptr};
+        }
+        return ListIterator<T>{first_};
     }
 
     /* ... */
-    ListIterator<T> end() {
-      //TODO: end-Method returning an Iterator to element after (!) 
-      //      the last element in the List (Aufgabe 3.11)
-      return {};
+    //TODO: end-Method returning an Iterator to element after (!) 
+    //the last element in the List (Aufgabe 3.9)
+    ListIterator<T> end() const {
+        return ListIterator<T>{nullptr};
     }
 
     /* ... */ 
