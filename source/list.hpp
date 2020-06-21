@@ -231,40 +231,67 @@ class List {
         ++size_;
     }
 
-    /* ... */
+    /* (Aufgabe 3.3)... */
     void pop_front() {
+        
       if(empty()) {
         throw "List is empty";
       }
-
-      // TODO: remainder of pop_front-method (Aufgabe 3.3)
+      assert(!empty());
+      if(size()==1)
+      {
+          delete first_;
+          first_ = nullptr;
+          last_ = nullptr;
+          --size_;
+      }   
+      else {
+          auto temp = first_->next;
+          delete first_;
+          first_ = temp;
+          first_->prev = nullptr;
+          --size_;
+      }
     }
 
-    /* ... */
+    /* (Aufgabe 3.3)... */
     void pop_back() {
       if(empty()) {
         throw "List is empty";
       }
-
-      // TODO: remainder of pop_back-method (Aufgabe 3.3)
+      assert(!empty());
+      if (size() == 1) {
+          delete first_;
+          first_ = nullptr;
+          last_ = nullptr;
+          --size_;
+      }
+      else {
+          auto temp = last_->prev;
+          delete last_;
+          last_ = temp;
+          last_->next = nullptr;
+          --size_;
+      }
     }
 
-    /* ... */
+    /* (Aufgabe 3.3)... */
     T& front() {
       if(empty()) {
         throw "List is empty";
       }
-
-      // TODO: remainder of front-method (Aufgabe 3.3)
+      assert(!empty());
+      return first_->value;
+      
     }
 
-    /* ... */
+    /* (Aufgabe 3.3)... */
     T& back() {
       if(empty()) {
         throw "List is empty";
       }
-
-      // TODO: remainder of back-method (Aufgabe 3.3)
+      assert(!empty());
+      return last_->value;
     }
 
     /* (Aufgabe 3.2)... */
