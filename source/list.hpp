@@ -159,8 +159,13 @@ class List {
     //TODO: Initializer-List Konstruktor (3.10 - Teil 1)
     /* ... */
     // test and implement:
-    List(std::initializer_list<T> ini_list) {
-      //not implemented yet
+    List(std::initializer_list<T> ini_list) :
+        size_(0),
+        first_(nullptr),
+        last_(nullptr) {
+        for (auto i = list.begin(); i != list.end(); ++i) {
+            push_back(*i);
+        }
     }
 
     /* ... */
