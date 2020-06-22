@@ -86,10 +86,11 @@ TEST_CASE("test_reverse", "[reverse]")
     REQUIRE(list1.back()==1);
     /*
     List<int> list2 = reverse(list1);
-    REQUIRE(list2.back()== -572662307);
-    REQUIRE(list2.front()== -572662307);
+    REQUIRE(list2.back()== 3);
+    REQUIRE(list2.front()== 1);
     */
     }
+
 TEST_CASE("vergleich zwei list", "[List_Vergleich]")
 {
     List<int> list1;
@@ -103,9 +104,31 @@ TEST_CASE("vergleich zwei list", "[List_Vergleich]")
     list1.push_back(4);
     list2.push_back(1);
     REQUIRE(list1 != list2);
-
-
 }
+/*
+TEST_CASE(" move constructor ", "[ constructor ]")
+{
+    List<int> list;
+    list.push_front(1);
+    list.push_front(2);
+    list.push_front(3);
+    list.push_front(4);
+    //List<int> list2 = std::move(list);
+    REQUIRE(0 == list.size());
+    REQUIRE(list.empty());
+    //REQUIRE(4 == list2.size());
+}
+TEST_CASE(" test_initializer_list ", "[ initializer_list]")
+{
+    List<int> int_list{ 9,5,38,100 };
+    List<int> int_list1{ 1,2 };
+    List<int> int_list2{ 5,6 };
+    REQUIRE(int_list.front() == 9);
+    List<int> a = List<int>{ 1,2 } + List<int>{ 5,6 };
+    List<int>{1, 2, 5, 6};
+}
+
+*/
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);

@@ -138,9 +138,11 @@ class List {
         last_{nullptr}
     {}
 
+    /*Copy Constructor is a type of constructor which is used to create a copy
+    of an already existing object of a class type */
     // test and implement:
     //TODO: Copy-Konstruktor using Deep-Copy semantics (Aufgabe 3.5)
-    /*
+    
     List(List<T> const& list):
         size_{0},
         first_{nullptr},
@@ -152,9 +154,20 @@ class List {
             ++i;
         }
     }
-    */
-    // test and implement:
+    
+    // test and implement: A move constructor of class T is a non-template constructor whose first parameter is T&&,
+   // const T&&, volatile T&&, or const volatile T&&, and either there are no other parameters,
+   //     or the rest of the parameters all have default values.
     // TODO: Move-Konstruktor (Aufgabe 3.9)
+    List(List<T>&& list) :  
+        size_(list.size_),
+        first_(list.first_),
+        last_(list.last_)
+    {
+        list.size_ = 0;
+        list.first_ = nullptr;
+        list.last_ = nullptr;
+    }
 
     //TODO: Initializer-List Konstruktor (3.10 - Teil 1)
     /* ... */
