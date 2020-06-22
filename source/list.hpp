@@ -287,12 +287,7 @@ class List {
         }
         ++size_;
     }
-
-    /* ... */
-    //TODO: member function insert (Aufgabe 3.14)
-
-    /* ... */
-
+    /* Die Reihenfolge der Liste umkehrt */
     //TODO: member function reverse (Aufgabe 3.7 - Teil 1)
     void reverse()
     {
@@ -439,6 +434,17 @@ List<T> reverse(List<T> const& list)
 
 /* ... */
 //TODO: Freie Funktion operator+ (3.10 - Teil 2)
-
+template<typename T>
+List<T> operator+(List<T> const& lhs, List<T> const& rhs) {
+            //List<T> r(lhs);
+    List<T> r;
+    for (auto i = lhs.begin(); i != lhs.end(); ++i) {
+        r.push_back(move(*i));
+    }
+    for (auto i = rhs.begin(); i != rhs.end(); ++i) {
+        r.push_back(move(*i));
+    }
+    return r;
+}
 
 #endif // # define BUW_LIST_HPP
