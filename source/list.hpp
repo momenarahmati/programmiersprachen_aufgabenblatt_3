@@ -257,8 +257,18 @@ class List {
     }
 
 
-    /* ... */
+    /*  */
     //TODO: member function insert (Aufgabe 3.13)
+    void insert(ListIterator<T> const& position, T const& objekt)
+    {
+        if (position == begin()) { push_front(objekt); }
+        else {
+            ListNode<T>* addNode = new ListNode<T>{ objekt,position.nodePointer()->prev,position.nodePointer() };
+            position.nodePointer()->prev = addNode;
+            addNode->prev->next = addNode;
+        }
+        ++size_;
+    }
 
     /* ... */
     //TODO: member function insert (Aufgabe 3.14)
